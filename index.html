@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xin Wang · Project Portfolio</title>
+<meta name="description" content="Project portfolio of Xin Wang, Computer Engineering student at the University of Toronto: demos, slides and reports for hardware, embedded and software projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f7f5; --surface:#ffffff; --text:#1b1d21; --muted:#5d636e; --line:#e3e4e1;
+  --accent:#1f5fbf; --accent-soft:#e8f0fc; --mine:#0f7a55; --mine-soft:#e5f4ee;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#111317; --surface:#181b21; --text:#e8e9ec; --muted:#9aa1ad; --line:#2a2e36;
+    --accent:#7fb0ff; --accent-soft:#1b2940; --mine:#5fd3a4; --mine-soft:#15302a;
+    --shadow:none;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+code,.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+
+/* header */
+header.hero{padding:72px 0 40px}
+.hero h1{font-size:clamp(2rem,5vw,2.8rem);line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
+.hero .role{font-size:1.1rem;color:var(--muted);margin:0 0 20px;max-width:680px}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--text);font-size:.92rem;font-weight:500}
+.btn:hover{border-color:var(--accent);text-decoration:none}
+.notice{margin-top:28px;padding:14px 16px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;font-size:.95rem;max-width:760px}
+
+/* nav */
+nav.toc{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:18px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none}
+nav.toc a{white-space:nowrap;color:var(--muted);font-size:.9rem;font-weight:500}
+nav.toc a:hover{color:var(--text);text-decoration:none}
+
+/* project */
+section.project{padding:56px 0;border-bottom:1px solid var(--line)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;color:var(--muted);font-size:.9rem;margin-bottom:6px}
+.project h2{font-size:1.7rem;margin:0 0 6px;letter-spacing:-.01em}
+.tagline{font-size:1.05rem;color:var(--muted);margin:0 0 18px;max-width:760px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.chip{font-family:"JetBrains Mono",monospace;font-size:.78rem;padding:3px 8px;border-radius:6px;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
+@media (max-width:820px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:var(--shadow)}
+.card h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}
+.card ul{margin:0;padding-left:18px}
+.card li{margin:6px 0}
+.mine{background:var(--mine-soft);border-color:transparent;margin-bottom:16px}
+.mine h3{color:var(--mine)}
+.stat{display:flex;gap:18px;flex-wrap:wrap;margin:4px 0 16px}
+.stat div{min-width:120px}
+.stat b{display:block;font-size:1.5rem;letter-spacing:-.01em}
+.stat span{font-size:.82rem;color:var(--muted)}
+.media{display:grid;gap:14px}
+figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+figure video,figure img{display:block;width:100%;height:auto;background:#000}
+figure img{background:#fff}
+figcaption{padding:10px 14px;font-size:.86rem;color:var(--muted)}
+.docs{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.doc{display:flex;flex-direction:column;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);min-width:200px;flex:1}
+.doc:hover{border-color:var(--accent);text-decoration:none}
+.doc b{color:var(--text);font-weight:600}
+.doc span{font-size:.82rem;color:var(--muted)}
+.credit{font-size:.88rem;color:var(--muted);margin-top:14px}
+
+footer{padding:40px 0 60px;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Xin Wang</h1>
+    <p class="role">Computer Engineering student (PEY Co-op) at the University of Toronto. I work across FPGA hardware, embedded C/RISC-V and performance-oriented C++. This page collects demos, slides and reports from my projects.</p>
+    <div class="links">
+      <a class="btn" href="mailto:sin.wang@mail.utoronto.ca">✉ sin.wang@mail.utoronto.ca</a>
+      <a class="btn" href="https://github.com/unsc2024">GitHub</a>
+      <!-- <a class="btn" href="https://linkedin.com/in/YOUR-HANDLE">LinkedIn</a> -->
+    </div>
+    <p class="notice"><strong>About source code:</strong> these are University of Toronto course projects, and course academic-integrity policy doesn't allow me to publish the source code. <strong>Code is available to recruiters and interviewers on request</strong>. Just email me.</p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Projects">
+  <div class="wrap">
+    <a href="#essencenav">EssenceNav: C++ Mapping &amp; Routing</a>
+    <a href="#traffic">FPGA Traffic Simulator</a>
+    <a href="#minigolf">Mini-Golf on DE1-SoC</a>
+    <a href="#bridge">Box-Girder Bridge</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============ EssenceNav ============ -->
+<section class="project" id="essencenav">
+  <div class="meta"><span>Software Design &amp; Communication (ECE297)</span><span>Jan – Apr 2026</span><span>Software Developer &amp; Team Lead</span></div>
+  <h2>EssenceNav: GIS Mapping &amp; Routing Application</h2>
+  <p class="tagline">A city-scale map and navigation app in C++ built on OpenStreetMap data, designed around one idea: <em>simplicity</em>, meaning less visual clutter and faster decisions.</p>
+  <div class="chips"><span class="chip">C++17</span><span class="chip">STL</span><span class="chip">ezgl / GTK</span><span class="chip">OpenStreetMap</span><span class="chip">Multithreading</span><span class="chip">DeepSeek API</span><span class="chip">Git</span></div>
+
+  <div class="grid">
+    <div>
+      <div class="stat">
+        <div><b>2 → 31 / 32</b><span>courier benchmarks passed</span></div>
+        <div><b>100+ s → 51 s</b><span>runtime on hardest cases</span></div>
+      </div>
+      <div class="card mine">
+        <h3>What I did</h3>
+        <ul>
+          <li>Rebuilt the courier (pickup/drop-off) solver as a time-budgeted pipeline: greedy construction, <strong>or-opt local search</strong> and <strong>cached shortest-path results</strong>.</li>
+          <li>Parallelized shortest-path computation with a thread pool pulling work from an atomic counter, sharing a mutex-protected cache, and stopping at the deadline.</li>
+          <li>Designed adaptive runtime budgeting that always returns the best valid route before the hard 50 s limit.</li>
+          <li>Implemented Dijkstra-based path finding with turn penalties over precomputed adjacency structures.</li>
+          <li>Integrated the DeepSeek LLM API to turn raw map output into short plain-language summaries and suggest the intended query when a search fails.</li>
+          <li>Led the team: coordinated milestone ownership, ran joint debugging for cross-owned integration bugs, and set code-handoff guidelines.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Other features</h3>
+        <ul>
+          <li>2.5D buildings via depth sorting, drop shadows and dot-product directional lighting</li>
+          <li>Case-insensitive prefix/substring autocomplete search</li>
+          <li>Multi-language street names (e.g. Chinese, Spanish) with English fallback</li>
+          <li>Night mode, auto-zoom and level-of-detail rendering to reduce icon clutter</li>
+        </ul>
+      </div>
+      <div class="docs">
+        <a class="doc" href="materials/essencenav-final-presentation.pdf" target="_blank" rel="noopener"><b>Final presentation (PDF)</b><span>74 slides: design rationale, algorithms, benchmarks</span></a>
+      </div>
+    </div>
+    <div class="media">
+      <figure>
+        <video controls muted playsinline preload="none" poster="assets/essencenav-zoom.jpg"><source src="assets/essencenav-zoom.mp4" type="video/mp4"></video>
+        <figcaption>Zooming with level-of-detail and 2.5D buildings</figcaption>
+      </figure>
+      <figure>
+        <video controls muted playsinline preload="none" poster="assets/essencenav-search.jpg"><source src="assets/essencenav-search.mp4" type="video/mp4"></video>
+        <figcaption>Autocomplete search bar</figcaption>
+      </figure>
+      <figure>
+        <video controls muted playsinline preload="none" poster="assets/essencenav-ai.jpg"><source src="assets/essencenav-ai.mp4" type="video/mp4"></video>
+        <figcaption>AI assistant: plain-language summary of a selection</figcaption>
+      </figure>
+    </div>
+  </div>
+  <p class="credit">Team project (ECE297 Team 033) with Andrew.</p>
+</section>
+
+<!-- ============ Traffic Simulator ============ -->
+<section class="project" id="traffic">
+  <div class="meta"><span>Digital Systems (ECE241)</span><span>Sep – Dec 2025</span><span>Digital Hardware Designer</span></div>
+  <h2>Intersection Traffic Simulator on FPGA</h2>
+  <p class="tagline">A four-way intersection simulated entirely in Verilog on a DE1-SoC, with traffic lights, randomly arriving vehicles and live queue statistics drawn over VGA at 60 Hz.</p>
+  <div class="chips"><span class="chip">Verilog HDL</span><span class="chip">Quartus Prime</span><span class="chip">ModelSim</span><span class="chip">VGA</span><span class="chip">DE1-SoC</span></div>
+
+  <div class="grid">
+    <div>
+      <div class="stat">
+        <div><b>8</b><span>vehicles updated in parallel</span></div>
+        <div><b>1 cycle</b><span>per frame for all updates</span></div>
+        <div><b>60 Hz</b><span>VGA output</span></div>
+      </div>
+      <div class="card mine">
+        <h3>What I did: the vehicle subsystem</h3>
+        <ul>
+          <li>Designed the full vehicle management module: spawning, slot allocation, motion and statistics.</li>
+          <li>Instantiated <strong>8 parameterized update processors in parallel</strong>, each enforcing red-light stops and a 10-pixel following gap so cars queue realistically.</li>
+          <li>Generated random arrivals in 4 directions with 16-bit maximal-length <strong>LFSRs</strong>; a spawn processor arbitrates by fixed priority and takes the first free slot.</li>
+          <li>Computed per-direction traffic “pressure” (queue length × average wait) in combinational logic every frame.</li>
+          <li>Debugged coordinate wrap-around from 10-bit unsigned underflow, and restructured submodules so a single module owns every array write.</li>
+        </ul>
+      </div>
+      <div class="docs">
+        <a class="doc" href="materials/traffic-simulator-presentation.pdf" target="_blank" rel="noopener"><b>Project presentation (PDF)</b><span>Block diagrams, FSMs, bugs &amp; fixes, work division</span></a>
+      </div>
+    </div>
+    <div class="media">
+      <figure>
+        <video controls muted playsinline preload="none" poster="assets/traffic-demo.jpg"><source src="assets/traffic-demo.mp4" type="video/mp4"></video>
+        <figcaption>Baseline mode running on the board (light FSM and road display by my partner)</figcaption>
+      </figure>
+      <figure>
+        <a href="assets/traffic-vehicle-management.png" target="_blank" rel="noopener"><img src="assets/traffic-vehicle-management.png" alt="Block diagram of the vehicle management module and its submodules" loading="lazy"></a>
+        <figcaption>Vehicle management module: my part of the design</figcaption>
+      </figure>
+      <figure>
+        <a href="assets/traffic-overview.png" target="_blank" rel="noopener"><img src="assets/traffic-overview.png" alt="High-level block diagram of the traffic simulator" loading="lazy"></a>
+        <figcaption>System overview</figcaption>
+      </figure>
+    </div>
+  </div>
+  <p class="credit">Two-person project with Helen N. (traffic-light FSM, counters, road &amp; light VGA).</p>
+</section>
+
+<!-- ============ Mini Golf ============ -->
+<section class="project" id="minigolf">
+  <div class="meta"><span>Computer Organization (ECE243)</span><span>Jan – Apr 2026</span><span>Embedded Software Developer</span></div>
+  <h2>Mini-Golf Game on DE1-SoC</h2>
+  <p class="tagline">A three-level top-down mini-golf game on a Nios V (RISC-V) soft processor: PS/2 keyboard aiming, 2D ball physics, water hazards, and a 640×480 VGA display with HUD and HEX-display scoring.</p>
+  <div class="chips"><span class="chip">C</span><span class="chip">RISC-V (Nios V)</span><span class="chip">Memory-mapped I/O</span><span class="chip">VGA</span><span class="chip">PS/2</span></div>
+
+  <div class="grid">
+    <div>
+      <div class="card mine">
+        <h3>What I did: rendering &amp; display</h3>
+        <ul>
+          <li>Built a <strong>double-buffered, vsync-locked renderer</strong> that erases only changed regions from a cached static background instead of redrawing the full screen.</li>
+          <li>Tracked dirty regions separately for each frame buffer to prevent ghosting, restoring pixels from a cached background.</li>
+          <li>Drew all graphics with no external libraries: Bresenham lines, midpoint-circle fill, and a custom 59-glyph 5×7 bitmap font for menus and HUD.</li>
+          <li>Defined the shared game-state interface (<span class="mono">globals.h</span>): game FSM, geometry structs and command flags, so rendering, physics, input and levels could be developed in parallel.</li>
+          <li>Implemented the HEX-display logic and integrated render/UI sequencing in the main loop.</li>
+        </ul>
+      </div>
+      <div class="docs">
+        <a class="doc" href="materials/mini-golf-report.pdf" target="_blank" rel="noopener"><b>Project report (PDF)</b><span>Description, block diagram, controls, attribution</span></a>
+      </div>
+    </div>
+    <div class="media">
+      <figure>
+        <a href="assets/minigolf-block-diagram.jpg" target="_blank" rel="noopener"><img src="assets/minigolf-block-diagram.jpg" alt="Module architecture of the mini-golf game" loading="lazy"></a>
+        <figcaption>Module architecture: I owned <span class="mono">render</span>, <span class="mono">ui</span> and <span class="mono">globals</span></figcaption>
+      </figure>
+    </div>
+  </div>
+  <p class="credit">Two-person project with Karan K. (physics, collisions, input, levels), split 50/50.</p>
+</section>
+
+<!-- ============ Bridge ============ -->
+<section class="project" id="bridge">
+  <div class="meta"><span>Structures &amp; Materials (CIV102)</span><span>Oct – Nov 2024</span><span>Team Lead &amp; Structural Analyst</span></div>
+  <h2>Box-Girder Matboard Bridge</h2>
+  <p class="tagline">Designed, analysed and built a 1.2 m matboard box-girder bridge to carry a moving train load, iterating the cross-section against a MATLAB factor-of-safety model.</p>
+  <div class="chips"><span class="chip">MATLAB</span><span class="chip">Structural analysis</span><span class="chip">Failure-mode analysis</span><span class="chip">Iterative design</span></div>
+
+  <div class="grid">
+    <div>
+      <div class="stat">
+        <div><b>≈3.5×</b><span>predicted capacity gain</span></div>
+        <div><b>6</b><span>design iterations</span></div>
+        <div><b>8</b><span>failure modes checked</span></div>
+      </div>
+      <div class="card mine">
+        <h3>What I did</h3>
+        <ul>
+          <li>Led a team of three through six design iterations, binary-searching key cross-section dimensions against a MATLAB factor-of-safety model to reach the ~1,000 N train-load target.</li>
+          <li>Evaluated flexural tension/compression, thin-plate and shear buckling, and glue shear to drive design changes: 400 mm diaphragm spacing, double-layer top flange, splices at low-moment ends.</li>
+          <li>Built and load-tested the bridge, then traced the gap between prediction and test to construction imperfections.</li>
+        </ul>
+      </div>
+      <div class="docs">
+        <a class="doc" href="materials/bridge-design-report.pdf" target="_blank" rel="noopener"><b>Design report (PDF)</b><span>Iterations, hand calcs, SFD/BMD, drawings, build log</span></a>
+      </div>
+      <p class="credit">MATLAB analysis code omitted from the report; available on request.</p>
+    </div>
+    <div class="media">
+      <figure>
+        <img style="max-height:520px;object-fit:cover" src="assets/bridge-build.jpg" alt="Matboard bridge clamped while the glue sets" loading="lazy">
+        <figcaption>Final bridge clamped during assembly</figcaption>
+      </figure>
+    </div>
+  </div>
+  <p class="credit">Team project with Ethan L. and Amy L.</p>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Source code for all projects is available on request: <a href="mailto:sin.wang@mail.utoronto.ca">sin.wang@mail.utoronto.ca</a></div>
+</footer>
+</body>
+</html>
